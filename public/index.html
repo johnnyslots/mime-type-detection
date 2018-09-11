@@ -9,7 +9,24 @@
 </head>
 <body>
   <h1>MIME Type Detection</h1>
+<!-- <form enctype="multipart/form-data" action="/api/upload" method="post">
+    <input id="file" type="file" />
+</form> -->
+
+
+<!-- <form action="/api/upload" method="post" enctype="multipart/form-data" onsubmit="return false;">
   <input id="file" type="file" />
+  <input type="submit" value="Upload" id="upload">
+
+</form> -->
+
+<form id="upload-form">
+    <label for="file">File</label> <input id="file" type="file" name="file">
+    <input type="submit">
+</form>
+<p>Progress: <span id="progress-value"></span>%</p>
+<p id="upload-complete"></p>
+<p id="errors"></p>
 
 
   <script src="./upload.js"></script>
