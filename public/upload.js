@@ -1,6 +1,5 @@
 const mimeType = document.getElementById('mime-type');
-const validType = document.getElementById('valid-type');
-const invalidType = document.getElementById('error');
+const message = document.getElementById('message');
 const validMimeTypes = {
   '0001c': 'video/mp4',
   '00014': 'video/quicktime',
@@ -26,14 +25,14 @@ function onSubmit(event) {
     }
     header = header.slice(0, 5)
     if(header in validMimeTypes) {
-      mimeType.innerHTML = `MIME Type: ${validMimeTypes[header]}`
-      validType.innerHTML = 'Valid file type!'
-      invalidType.innerHTML = ''
+      mimeType.innerHTML = `MIME Type: ${validMimeTypes[header]}`;
+      message.innerHTML = 'Valid file type!';
+      message.style.color = 'green';
     }
     else {
-      invalidType.innerHTML = 'Error: file type not valid. Please select another file.'
-      mimeType.innerHTML = ''
-      validType.innerHTML = ''
+      mimeType.innerHTML = '';
+      message.innerHTML = 'Error: file type not valid. Please select another file.';
+      message.style.color = 'red';
     }
   };
 
