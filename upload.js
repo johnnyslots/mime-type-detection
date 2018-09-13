@@ -36,10 +36,16 @@ fileReader.onloadend = function(e) {
 
 function onSubmit(event) {
   event.preventDefault()
-  const blob = document.getElementById("file").files[0];
+  const blob = document.getElementById("file").files.length ? document.getElementById("file").files[0] : null;
+  if(blob) {
+    // Read the contents of blob to get the file's data
+    fileReader.readAsArrayBuffer(blob);
+  }
+  else {
+    let verificationMessage = 'Please select a file to verify.';
+    setMessage('', verificationMessage, 'red');
+  }
 
-  // Read the contents of blob to get the file's data
-  fileReader.readAsArrayBuffer(blob);
 }
 
 function getHeader(arr) {
@@ -48,7 +54,7 @@ function getHeader(arr) {
     header += arr[i].toString(16);
   }
   // Slice result to standardize length in order to match key length in 'validMimeTypes' object above
-  return header.slice(0, 5)
+  return header.slice(0, 5);
 }
 
 function setMessage(mimeTypeValue, verificationMessage, color) {
@@ -56,5 +62,3 @@ function setMessage(mimeTypeValue, verificationMessage, color) {
   message.innerHTML = verificationMessage;
   message.style.color = color;
 }
-
-
