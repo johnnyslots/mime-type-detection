@@ -1,14 +1,6 @@
 const mimeType = document.getElementById('mime-type');
 const message = document.getElementById('message');
-const validMimeTypes = {
-  '0001c': 'video/mp4',
-  '00014': 'video/quicktime',
-  '52494': 'video/x-msvideo',
-  '3026b': 'video/x-ms-wmv',
-  '1a45d': 'video/webm',
-  '4f676': 'video/ogg',
-  '001ba': 'video/mpeg',
-};
+const validMimeTypes = getValidMimeTypes();
 
 // Add event listener with an 'on submit' callback, for the "verify" button
 document.getElementById('upload-form').addEventListener('submit', onSubmit);
@@ -36,7 +28,9 @@ fileReader.onloadend = function(e) {
 
 function onSubmit(event) {
   event.preventDefault()
-  const blob = document.getElementById("file").files.length ? document.getElementById("file").files[0] : null;
+  const blob = document.getElementById("file").files.length
+    ? document.getElementById("file").files[0]
+    : null;
   if(blob) {
     // Read the contents of blob to get the file's data
     fileReader.readAsArrayBuffer(blob);
@@ -53,7 +47,7 @@ function getHeader(arr) {
   for(let i = 0; i < arr.length; i++) {
     header += arr[i].toString(16);
   }
-  // Slice result to standardize length in order to match key length in 'validMimeTypes' object above
+  // Slice result to standardize length in order to match key length in validMimeTypes object above
   return header.slice(0, 5);
 }
 
