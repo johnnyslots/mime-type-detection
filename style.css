@@ -47,11 +47,11 @@ img {
   font-size: 14px;
   background-color: black;
   color: #00acef;
-  border: none;
+  border-radius: 5%;
+  border-color: black;
   cursor: pointer;
 }
 
 #verify:hover {
-  background-color: #404040;
-  color: #00acef;
+  background-color: #262626;
 }
