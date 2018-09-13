@@ -17,4 +17,4 @@ I used a JavaScript object to store the first few characters converted from the 
 
 Please let me know if you have any questions!
 
-- Yoni Slotwiner
+Yoni Slotwiner
