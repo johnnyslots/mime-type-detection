@@ -1,5 +1,7 @@
 # MIME Type Detection and Verification
 
+Deployed app at https://johnnyslots.github.io/mime-type-detection
+
 This app correctly detecs and verifies the following MIME types:
 - video/mp4
 - video/quicktime
